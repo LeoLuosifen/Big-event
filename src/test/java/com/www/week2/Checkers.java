@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @date 2024/2/27 16:30
  */
 public class Checkers {
-    private char[][] board = new char[8][8]; // 8x8
+    private char[][] board = new char[8][8]; //  8x8
     private Scanner scanner = new Scanner(System.in);
 
     public void initialiseBoard() {
