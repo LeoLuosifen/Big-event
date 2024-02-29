@@ -64,6 +64,16 @@ public class Checkers {
                 break;
             }
 
+//            if (new Scanner(userInput).hasNextInt()){
+//                System.out.println();
+//                System.out.println("Error!");
+//            }
+//
+//            if (new Scanner(userInput).hasNextDouble()){
+//                System.out.println();
+//                System.out.println("Error!");
+//            }
+
             // move
             if (processMove(userInput)){
                 whiteTurn = !whiteTurn;
@@ -84,9 +94,22 @@ public class Checkers {
     private static boolean processMove(String move) {
         // Implement this method to process the player's move.
         String[] individual = move.split(" to ");
+
+        String integerPattern = "^-?\\d+$";
+        String floatPattern = "^[+-]?(\\d+(\\.\\d*)?|\\.\\d+)([eE][+-]?\\d+)?$";
+
         if (individual.length != 2){
             return false;
         }
+
+        for (String item : individual){
+            if (item.matches(integerPattern)){
+                return false;
+            } else if (item.matches(floatPattern)) {
+                return false;
+            }
+        }
+
         // A6
         int formRow = individual[0].charAt(1) - '1';
         int formCol = individual[0].charAt(0) - 'A';
